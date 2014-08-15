@@ -42,3 +42,11 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
     $ git tag -v ${TAG}
     gpg: Good signature from... # Verified
     gpg: Can't check signature... # Unverified
+
+## List Branches
+
+    $ git branch -a
+
+## Switch Branch
+
+    $ git checkout ${BRANCH}
