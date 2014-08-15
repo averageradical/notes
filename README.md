@@ -2,7 +2,7 @@
 
 ## Create SSH Key
 
-   $ ssh-keygen -t rsa -b 4096 -C "${EMAIL} -f ~/.ssh/githubkey"
+    $ ssh-keygen -t rsa -b 4096 -C "${EMAIL} -f ~/.ssh/githubkey"
 
 ## Configure Github
 
@@ -27,3 +27,7 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
     $ git commit -a -S -m "${MESSAGE}"
     $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push'
 
+## Create Tag
+
+    $ git tag -s v1.0 -m "${MESSAGE}"
+    $ git push --tags
