@@ -1,4 +1,4 @@
-# notes
+# Notes
 
 ## Create SSH Key
 
@@ -21,4 +21,9 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
     sec   4096R/${KEYID} ${DATE}
     uid                  ${USER} <${EMAIL}>
     $ git config user.signingkey ${KEYID}
+
+## Commit and Push
+
+    $ git commit -a -S -m "${MESSAGE}"
+    $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push'
 
