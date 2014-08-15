@@ -2,7 +2,7 @@
 
 ## Create SSH Key
 
-    $ ssh-keygen -t rsa -b 4096 -C "${EMAIL} -f ~/.ssh/githubkey"
+    $ ssh-keygen -t rsa -b 4096 -C "${EMAIL}" -f ~/.ssh/githubkey
 
 ## Configure Github
 
