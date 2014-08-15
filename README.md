@@ -21,6 +21,10 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
     sec   4096R/${KEYID} ${DATE}
     uid                  ${USER} <${EMAIL}>
     $ git config user.signingkey ${KEYID}
+    $ gpg -a --export E5676535 | git hash-object -w --stdin
+    ${SHA}
+    $ git tag -s pubkey_${USER} -m "Public key for ${USER}" ${SHA}
+    $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push --tags'
 
 ## Commit and Push
 
@@ -29,5 +33,12 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
 
 ## Create Tag
 
-    $ git tag -s v1.0 -m "Version 1.0"
+    $ git tag -s ${TAG} -m "${MESSAGE}"
     $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push --tags'
+
+## Verify Tag
+
+    $ git cat-file blob pubkey_${USER} | gpg --import
+    $ git tag -v ${TAG}
+    gpg: Good signature from... # Verified
+    gpg: Can't check signature... # Unverified
