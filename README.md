@@ -29,5 +29,5 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
 
 ## Create Tag
 
-    $ git tag -s v1.0 -m "${MESSAGE}"
-    $ git push --tags
+    $ git tag -s v1.0 -m "Version 1.0"
+    $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push --tags'
