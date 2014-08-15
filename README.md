@@ -21,7 +21,7 @@ Account Settings > SSH Keys > Paste Contents of ~/.ssh/githubkey.pub
     sec   4096R/${KEYID} ${DATE}
     uid                  ${USER} <${EMAIL}>
     $ git config user.signingkey ${KEYID}
-    $ gpg -a --export E5676535 | git hash-object -w --stdin
+    $ gpg -a --export ${KEYID} | git hash-object -w --stdin
     ${SHA}
     $ git tag -s pubkey_${USER} -m "Public key for ${USER}" ${SHA}
     $ ssh-agent bash -c 'ssh-add ~/.ssh/githubkey; git push --tags'
